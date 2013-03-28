@@ -10,5 +10,4 @@ newrelic
 -e git://github.com/thadeusb/flask-cache.git@40cfd9280dc66ea54df0961420fc94853d506a35#egg=Flask-Cache
 
 ipython
-sqlalchemy
 
