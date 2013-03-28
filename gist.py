@@ -23,7 +23,7 @@ from lib.MemcachedMultipart import multipartmemecached
 
 class RegexConverter(BaseConverter):
     """regex route filter
-    
+
     from: http://stackoverflow.com/questions/5870188
     """
     def __init__(self, url_map, *items):
@@ -50,14 +50,15 @@ config = None
 
 if username[0] == '' or password[0]== '':
     print 'using clasical memcached'
-    config = {'CACHE_TYPE': 'lib.MemcachedMultipart.multipartmemecached',
-            'CACHE_MEMCACHED_SERVERS':servers}
+    config = {'CACHE_TYPE': 'null'#'lib.MemcachedMultipart.multipartmemecached',
+            #'CACHE_MEMCACHED_SERVERS':servers
+            }
 else :
     print 'using sasl memcached'
-    config = {'CACHE_TYPE': 'lib.MemcachedMultipart.multipartmemecached',
-            'CACHE_MEMCACHED_SERVERS':servers,
-            'CACHE_MEMCACHED_PASSWORD':password[0],
-            'CACHE_MEMCACHED_USERNAME':username[0]
+    config = {'CACHE_TYPE': 'null'
+            #'CACHE_MEMCACHED_SERVERS':servers,
+            #'CACHE_MEMCACHED_PASSWORD':password[0],
+            #'CACHE_MEMCACHED_USERNAME':username[0]
     }
 
 cache = Cache(app, config=config)
@@ -266,10 +267,10 @@ def render_content(content, url=None, forced_theme=None):
         name = nb.metadata.name
     except AttributeError:
         name = url.rsplit('/')[-1]
-    
+
     if not name.endswith(".ipynb"):
         name = name + ".ipynb"
-    
+
     config = {
             'download_url': url,
             'download_name': name,
