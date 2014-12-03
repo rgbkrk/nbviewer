@@ -21,7 +21,7 @@ RUN apt-get install -y -q build-essential make gcc zlib1g-dev git
 RUN apt-get install -y -q python python-dev python-pip
  
 # nbviewer binary dependencies
-RUN apt-get install -y -q libzmq3-dev sqlite3 libsqlite3-dev pandoc libevent-dev libcurl4-openssl-dev libmemcached-dev nodejs
+RUN apt-get install -y -q libzmq3-dev sqlite3 libsqlite3-dev pandoc libevent-dev libcurl4-openssl-dev libmemcached-dev nodejs npm nodejs-legacy
 
 # install IPython 2.x branch
 WORKDIR /srv
@@ -29,6 +29,8 @@ RUN git clone --depth 1 -b 2.x https://github.com/ipython/ipython.git
 WORKDIR /srv/ipython
 RUN git submodule init && git submodule update
 RUN pip install .
+
+RUN npm install -g bower
 
 ADD . /srv/nbviewer/
 
