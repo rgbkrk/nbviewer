@@ -53,11 +53,6 @@
         "img": "/static/img/example-nb/bokeh.png"
       },
       {
-        "text": "Interactive plots with Plotly",
-        "target": "github/plotly/python-user-guide/blob/master/Index.ipynb",
-        "img": "/static/img/example-nb/plotly.png"
-      },
-      {
         "text": "XKCD Plot With Matplotlib",
         "target": "url/jakevdp.github.com/downloads/notebooks/XKCD_plots.ipynb",
         "img": "/static/img/example-nb/XKCD-Matplotlib.png"
